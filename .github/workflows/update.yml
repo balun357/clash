@@ -1,0 +1,107 @@
+
+name: Update SCLash subscription
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download source list
+        run: |
+          curl -fsSL "https://raw.githubusercontent.com/zieng2/wl/main/vless_universal.txt" -o source.txt
+
+      - name: Convert links to Clash YAML
+        run: |
+          pip install -q pyyaml
+          python - <<'PY'
+          import yaml
+          from urllib.parse import urlparse, parse_qs, unquote
+          import base64, json
+
+          nodes = []
+          for line in open("source.txt", encoding="utf-8"):
+              line = line.strip()
+              if not line or "://" not in line:
+                  continue
+              scheme = line.split("://", 1)[0].lower()
+              try:
+                  if scheme == "vless":
+                      u = urlparse(line)
+                      q = parse_qs(u.query)
+                      node = {
+                          "name": unquote(u.fragment) or f"VLESS-{len(nodes)+1}",
+                          "type": "vless",
+                          "server": u.hostname,
+                          "port": u.port,
+                          "uuid": u.username,
+                          "network": q.get("type", ["tcp"])[0],
+                          "tls": q.get("security", [""])[0] in ("tls", "reality"),
+                          "udp": True
+                      }
+                      if q.get("sni"):
+                          node["servername"] = q["sni"][0]
+                      if q.get("fp"):
+                          node["client-fingerprint"] = q["fp"][0]
+                      if q.get("security", [""])[0] == "reality":
+                          node["reality-opts"] = {
+                              "public-key": q.get("pbk", [""])[0],
+                              "short-id": q.get("sid", [""])[0]
+                          }
+                      nodes.append(node)
+                  elif scheme == "vmess":
+                      raw = line.split("://",1)[1]
+                      data = json.loads(base64.urlsafe_b64decode(raw + "=" * (-len(raw)%4)))
+                      nodes.append({
+                          "name": data.get("ps") or f"VMess-{len(nodes)+1}",
+                          "type": "vmess",
+                          "server": data["add"],
+                          "port": int(data["port"]),
+                          "uuid": data["id"],
+                          "alterId": int(data.get("aid", 0)),
+                          "cipher": "auto",
+                          "tls": data.get("tls") == "tls"
+                      })
+              except Exception:
+                  continue
+
+          if not nodes:
+              raise SystemExit("No supported proxies found; keeping existing config")
+
+          config = {
+              "mixed-port": 7890,
+              "allow-lan": False,
+              "mode": "rule",
+              "log-level": "info",
+              "proxies": nodes,
+              "proxy-groups": [
+                  {"name": "PROXY", "type": "select",
+                   "proxies": ["AUTO"]},
+                  {"name": "AUTO", "type": "url-test",
+                   "url": "https://www.gstatic.com/generate_204",
+                   "interval": 300,
+                   "proxies": [n["name"] for n in nodes]}
+              ],
+              "rules": ["MATCH,PROXY"]
+          }
+          with open("sclash.yaml", "w", encoding="utf-8") as f:
+              yaml.safe_dump(config, f, allow_unicode=True, sort_keys=False)
+          print(f"Created {len(nodes)} proxies")
+          PY
+
+      - name: Commit updated subscription
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add sclash.yaml
+          git diff --cached --quiet || git commit -m "Update SCLash subscription"
+          git push
