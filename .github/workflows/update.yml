@@ -2,9 +2,12 @@
 name: Update SCLash subscription
 
 on:
+  workflow_dispatch:
+  push:
+    paths:
+      - ".github/workflows/update.yml"
   schedule:
     - cron: "0 */12 * * *"
-  workflow_dispatch:
 
 permissions:
   contents: write
@@ -12,6 +15,7 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -20,62 +24,198 @@ jobs:
         run: |
           curl -fsSL "https://raw.githubusercontent.com/zieng2/wl/main/vless_universal.txt" -o source.txt
 
-      - name: Convert links to Clash YAML
+      - name: Convert subscription
         run: |
           pip install -q pyyaml
-          python - <<'PY'
+          cat > convert.py <<'PY'
+          import base64
+          import json
           import yaml
-          from urllib.parse import urlparse, parse_qs, unquote
-          import base64, json
+          from urllib.parse import urlsplit, parse_qs, unquote
 
           nodes = []
+          used_names = set()
+
+          def decode64(value):
+              value += "=" * (-len(value) % 4)
+              return base64.urlsafe_b64decode(value).decode("utf-8")
+
+          def query_value(q, key, default=""):
+              return q.get(key, [default])[0]
+
+          def add_node(node):
+              name = node.get("name") or f"Proxy-{len(nodes)+1}"
+              base = name
+              number = 2
+              while name in used_names:
+                  name = f"{base}-{number}"
+                  number += 1
+              node["name"] = name
+              used_names.add(name)
+              nodes.append(node)
+
+          def add_transport(node, q, network):
+              if network == "raw":
+                  network = "tcp"
+              node["network"] = network
+
+              host = query_value(q, "host")
+              path = unquote(query_value(q, "path", "/"))
+
+              if network == "ws":
+                  opts = {"path": path}
+                  if host:
+                      opts["headers"] = {"Host": host}
+                  node["ws-opts"] = opts
+
+              elif network == "grpc":
+                  service = query_value(q, "serviceName") or path.lstrip("/")
+                  node["grpc-opts"] = {
+                      "grpc-service-name": service
+                  }
+
+              elif network == "xhttp":
+                  opts = {"path": path}
+                  if host:
+                      opts["headers"] = {"Host": host}
+                  mode = query_value(q, "mode")
+                  if mode:
+                      opts["mode"] = mode
+                  node["xhttp-opts"] = opts
+
           for line in open("source.txt", encoding="utf-8"):
               line = line.strip()
               if not line or "://" not in line:
                   continue
-              scheme = line.split("://", 1)[0].lower()
+
               try:
+                  scheme = line.split("://", 1)[0].lower()
+                  u = urlsplit(line)
+                  q = parse_qs(u.query)
+                  name = unquote(u.fragment)
+
                   if scheme == "vless":
-                      u = urlparse(line)
-                      q = parse_qs(u.query)
+                      security = query_value(q, "security")
+                      network = query_value(q, "type", "tcp")
+
                       node = {
-                          "name": unquote(u.fragment) or f"VLESS-{len(nodes)+1}",
+                          "name": name,
                           "type": "vless",
                           "server": u.hostname,
                           "port": u.port,
-                          "uuid": u.username,
-                          "network": q.get("type", ["tcp"])[0],
-                          "tls": q.get("security", [""])[0] in ("tls", "reality"),
-                          "udp": True
+                          "uuid": unquote(u.username or ""),
+                          "encryption": "none",
+                          "udp": True,
+                          "tls": security in ("tls", "reality")
                       }
-                      if q.get("sni"):
-                          node["servername"] = q["sni"][0]
-                      if q.get("fp"):
-                          node["client-fingerprint"] = q["fp"][0]
-                      if q.get("security", [""])[0] == "reality":
+
+                      sni = query_value(q, "sni")
+                      if sni:
+                          node["servername"] = sni
+
+                      fp = query_value(q, "fp")
+                      if fp:
+                          node["client-fingerprint"] = fp
+
+                      flow = query_value(q, "flow")
+                      if flow:
+                          node["flow"] = flow
+
+                      alpn = query_value(q, "alpn")
+                      if alpn:
+                          node["alpn"] = alpn.split(",")
+
+                      if security == "reality":
                           node["reality-opts"] = {
-                              "public-key": q.get("pbk", [""])[0],
-                              "short-id": q.get("sid", [""])[0]
+                              "public-key": query_value(q, "pbk"),
+                              "short-id": query_value(q, "sid")
                           }
-                      nodes.append(node)
+
+                      add_transport(node, q, network)
+                      add_node(node)
+
                   elif scheme == "vmess":
-                      raw = line.split("://",1)[1]
-                      data = json.loads(base64.urlsafe_b64decode(raw + "=" * (-len(raw)%4)))
-                      nodes.append({
-                          "name": data.get("ps") or f"VMess-{len(nodes)+1}",
+                      data = json.loads(
+                          decode64(line.split("://", 1)[1].split("#")[0])
+                      )
+
+                      node = {
+                          "name": name or data.get("ps", ""),
                           "type": "vmess",
                           "server": data["add"],
                           "port": int(data["port"]),
                           "uuid": data["id"],
                           "alterId": int(data.get("aid", 0)),
-                          "cipher": "auto",
-                          "tls": data.get("tls") == "tls"
+                          "cipher": data.get("scy", "auto"),
+                          "tls": data.get("tls") == "tls",
+                          "udp": True
+                      }
+
+                      if data.get("sni"):
+                          node["servername"] = data["sni"]
+
+                      network = data.get("net", "tcp")
+                      if network == "ws":
+                          transport_q = {
+                              "host": [data.get("host", "")],
+                              "path": [data.get("path", "/")]
+                          }
+                          add_transport(node, transport_q, "ws")
+                      elif network == "grpc":
+                          transport_q = {
+                              "serviceName": [data.get("path", "")]
+                          }
+                          add_transport(node, transport_q, "grpc")
+
+                      add_node(node)
+
+                  elif scheme == "trojan":
+                      node = {
+                          "name": name,
+                          "type": "trojan",
+                          "server": u.hostname,
+                          "port": u.port,
+                          "password": unquote(u.username or ""),
+                          "sni": query_value(q, "sni") or u.hostname,
+                          "udp": True,
+                          "tls": True
+                      }
+
+                      network = query_value(q, "type", "tcp")
+                      add_transport(node, q, network)
+                      add_node(node)
+
+                  elif scheme == "ss":
+                      if u.hostname and u.port:
+                          if u.password:
+                              method = unquote(u.username or "")
+                              password = unquote(u.password)
+                          else:
+                              decoded = decode64(u.username or "")
+                              method, password = decoded.split(":", 1)
+                          server, port = u.hostname, u.port
+                      else:
+                          raw = decode64(u.netloc.split("#")[0])
+                          parsed = urlsplit("ss://" + raw)
+                          method = unquote(parsed.username or "")
+                          password = unquote(parsed.password or "")
+                          server, port = parsed.hostname, parsed.port
+
+                      add_node({
+                          "name": name,
+                          "type": "ss",
+                          "server": server,
+                          "port": port,
+                          "cipher": method,
+                          "password": password,
+                          "udp": True
                       })
-              except Exception:
-                  continue
+
+              except Exception as error:
+                  print(f"Skipped one entry: {error}")
 
           if not nodes:
-              raise SystemExit("No supported proxies found; keeping existing config")
+              raise SystemExit("ERROR: no supported proxies found")
 
           config = {
               "mixed-port": 7890,
@@ -84,19 +224,31 @@ jobs:
               "log-level": "info",
               "proxies": nodes,
               "proxy-groups": [
-                  {"name": "PROXY", "type": "select",
-                   "proxies": ["AUTO"]},
-                  {"name": "AUTO", "type": "url-test",
-                   "url": "https://www.gstatic.com/generate_204",
-                   "interval": 300,
-                   "proxies": [n["name"] for n in nodes]}
+                  {
+                      "name": "PROXY",
+                      "type": "select",
+                      "proxies": ["AUTO", "DIRECT"]
+                  },
+                  {
+                      "name": "AUTO",
+                      "type": "url-test",
+                      "url": "https://www.gstatic.com/generate_204",
+                      "interval": 300,
+                      "proxies": [n["name"] for n in nodes]
+                  }
               ],
               "rules": ["MATCH,PROXY"]
           }
+
           with open("sclash.yaml", "w", encoding="utf-8") as f:
-              yaml.safe_dump(config, f, allow_unicode=True, sort_keys=False)
-          print(f"Created {len(nodes)} proxies")
+              yaml.safe_dump(
+                  config, f, allow_unicode=True, sort_keys=False
+              )
+
+          print(f"Successfully converted {len(nodes)} proxies")
           PY
+
+          python convert.py
 
       - name: Commit updated subscription
         run: |
