@@ -1,0 +1,2720 @@
+mixed-port: 7890
+socks-port: 7891
+allow-lan: false
+mode: rule
+log-level: warning
+ipv6: false
+unified-delay: true
+tcp-concurrent: true
+find-process-mode: strict
+global-client-fingerprint: chrome
+profile:
+  store-selected: true
+  store-fake-ip: true
+dns:
+  enable: true
+  ipv6: false
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  default-nameserver:
+  - 1.1.1.1
+  - 8.8.8.8
+  nameserver:
+  - https://1.1.1.1/dns-query
+  - https://dns.google/dns-query
+  proxy-server-nameserver:
+  - 1.1.1.1
+  - 8.8.8.8
+  direct-nameserver:
+  - 1.1.1.1
+  - 8.8.8.8
+  fake-ip-filter:
+  - +.lan
+  - +.local
+  - localhost
+  - time.*.com
+  - ntp.*.com
+proxies:
+- name: 🇷🇺 Россия VK · XHTTP · Firefox
+  type: vless
+  server: 78.159.250.84
+  port: 2053
+  uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+  udp: true
+  tls: true
+  servername: summerculture.net
+  client-fingerprint: firefox
+  alpn:
+  - h2
+  - http/1.1
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/upload
+    host: summerculture.net
+    mode: auto
+- name: 🇷🇺 Россия VK · XHTTP · Default FP
+  type: vless
+  server: 78.159.250.84
+  port: 2053
+  uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+  udp: true
+  tls: true
+  servername: summerculture.net
+  alpn:
+  - h2
+  - http/1.1
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/upload
+    host: summerculture.net
+    mode: auto
+- name: 🇷🇺 Россия Beget · Reality · Chrome
+  type: vless
+  server: 45.12.75.242
+  port: 26424
+  uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
+  udp: true
+  tls: true
+  servername: ya.ru
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
+    short-id: 23103e1e
+  network: tcp
+- name: 🇷🇺 Россия Beget · Reality · Qq
+  type: vless
+  server: 45.12.75.242
+  port: 26424
+  uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
+  udp: true
+  tls: true
+  servername: ya.ru
+  client-fingerprint: qq
+  reality-opts:
+    public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
+    short-id: 23103e1e
+  network: tcp
+- name: 🇷🇺 Россия Beget · gRPC · Random
+  type: vless
+  server: 93.188.184.150
+  port: 443
+  uuid: c6e3c24c-ce20-4ad5-8c8c-68cb05890ea8
+  udp: true
+  tls: true
+  servername: ru-1-2.unturned-rust-dead.lol
+  client-fingerprint: random
+  reality-opts:
+    public-key: aYz4_13W8gtAXGBrWeqJXtExahAJ9kUPDapqeyAlYCk
+  network: grpc
+  grpc-opts:
+    grpc-service-name: ru-api
+- name: 🇷🇺 Россия Beget · gRPC · Ios
+  type: vless
+  server: 93.188.184.150
+  port: 443
+  uuid: c6e3c24c-ce20-4ad5-8c8c-68cb05890ea8
+  udp: true
+  tls: true
+  servername: ru-1-2.unturned-rust-dead.lol
+  client-fingerprint: ios
+  reality-opts:
+    public-key: aYz4_13W8gtAXGBrWeqJXtExahAJ9kUPDapqeyAlYCk
+  network: grpc
+  grpc-opts:
+    grpc-service-name: ru-api
+- name: 🇷🇺 Россия Beget · gRPC · Edge
+  type: vless
+  server: 93.188.184.150
+  port: 443
+  uuid: c6e3c24c-ce20-4ad5-8c8c-68cb05890ea8
+  udp: true
+  tls: true
+  servername: ru-1-2.unturned-rust-dead.lol
+  client-fingerprint: edge
+  reality-opts:
+    public-key: aYz4_13W8gtAXGBrWeqJXtExahAJ9kUPDapqeyAlYCk
+  network: grpc
+  grpc-opts:
+    grpc-service-name: ru-api
+- name: 🇷🇺 Россия Beget · gRPC · Firefox
+  type: vless
+  server: 93.188.184.150
+  port: 443
+  uuid: c6e3c24c-ce20-4ad5-8c8c-68cb05890ea8
+  udp: true
+  tls: true
+  servername: ru-1-2.unturned-rust-dead.lol
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: aYz4_13W8gtAXGBrWeqJXtExahAJ9kUPDapqeyAlYCk
+  network: grpc
+  grpc-opts:
+    grpc-service-name: ru-api
+- name: 🇷🇺 Россия Beget · gRPC · Qq
+  type: vless
+  server: 93.188.184.150
+  port: 443
+  uuid: c6e3c24c-ce20-4ad5-8c8c-68cb05890ea8
+  udp: true
+  tls: true
+  servername: ru-1-2.unturned-rust-dead.lol
+  client-fingerprint: qq
+  reality-opts:
+    public-key: aYz4_13W8gtAXGBrWeqJXtExahAJ9kUPDapqeyAlYCk
+  network: grpc
+  grpc-opts:
+    grpc-service-name: ru-api
+- name: 🇷🇺 Россия ProCloud · XHTTP · Random
+  type: vless
+  server: 78.159.250.84
+  port: 2053
+  uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+  udp: true
+  tls: true
+  servername: summerculture.net
+  client-fingerprint: random
+  alpn:
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/upload
+    host: summerculture.net
+    mode: auto
+- name: 🇷🇺 Россия ProCloud · XHTTP · Random · 2
+  type: vless
+  server: 78.159.250.84
+  port: 2053
+  uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+  udp: true
+  tls: true
+  servername: summerculture.net
+  client-fingerprint: random
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/upload
+    host: summerculture.net
+- name: 🇷🇺 Россия ProCloud · XHTTP · Firefox
+  type: vless
+  server: 78.159.250.84
+  port: 2053
+  uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+  udp: true
+  tls: true
+  servername: summerculture.net
+  client-fingerprint: firefox
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/upload
+    host: summerculture.net
+    mode: auto
+- name: 🇷🇺 Россия ProCloud · XHTTP · Firefox · 2
+  type: vless
+  server: 78.159.250.84
+  port: 2053
+  uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+  udp: true
+  tls: true
+  servername: summerculture.net
+  client-fingerprint: firefox
+  alpn:
+  - h2
+  - http/1.1
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/upload
+    host: summerculture.net
+    mode: auto
+- name: 🇷🇺 Россия ProCloud · XHTTP · Firefox · 3
+  type: vless
+  server: 78.159.246.85
+  port: 2053
+  uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
+  udp: true
+  tls: true
+  servername: fitindoor.net
+  client-fingerprint: firefox
+  alpn:
+  - h2
+  - http/1.1
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/upload
+    host: fitindoor.net
+    mode: auto
+- name: 🇷🇺 Россия ProCloud · XHTTP · Firefox · 4
+  type: vless
+  server: 78.159.246.179
+  port: 2053
+  uuid: 6a2aff19-ff1f-4a13-96c8-a4d8986a9699
+  udp: true
+  tls: true
+  servername: randomquaint.net
+  client-fingerprint: firefox
+  alpn:
+  - http/1.1
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/upload
+    host: randomquaint.net
+    mode: auto
+    x-padding-bytes: 100-1000
+    x-padding-obfs-mode: false
+    session-length: 0
+    uplink-chunk-size: 0
+    no-grpc-header: false
+    sc-max-each-post-bytes: 1000000
+    sc-min-posts-interval-ms: 30
+    reuse-settings:
+      max-concurrency: 16-32
+      max-connections: 0
+      c-max-reuse-times: 64-128
+      h-max-request-times: 0
+      h-max-reusable-secs: 0
+      h-keep-alive-period: 0
+- name: 🇷🇺 Россия ProCloud · XHTTP · Firefox · 5
+  type: vless
+  server: 78.159.246.179
+  port: 2053
+  uuid: 6a2aff19-ff1f-4a13-96c8-a4d8986a9699
+  udp: true
+  tls: true
+  servername: randomquaint.net
+  client-fingerprint: firefox
+  alpn:
+  - http/1.1
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/upload
+    host: randomquaint.net
+    mode: auto
+- name: 🇷🇺 Россия Timeweb · XHTTP · Firefox
+  type: vless
+  server: 78.159.246.85
+  port: 2053
+  uuid: 6a2aff19-ff1f-4a13-96c8-a4d8986a9699
+  udp: true
+  tls: true
+  servername: fitindoor.net
+  client-fingerprint: firefox
+  alpn:
+  - http/1.1
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/upload
+    host: fitindoor.net
+    mode: auto
+    x-padding-bytes: 100-1000
+    x-padding-obfs-mode: false
+    session-length: 0
+    uplink-chunk-size: 0
+    no-grpc-header: false
+    sc-max-each-post-bytes: 1000000
+    sc-min-posts-interval-ms: 30
+    reuse-settings:
+      max-concurrency: 16-32
+      max-connections: 0
+      c-max-reuse-times: 64-128
+      h-max-request-times: 0
+      h-max-reusable-secs: 0
+      h-keep-alive-period: 0
+- name: 🇷🇺 Россия Timeweb · XHTTP · Firefox · 2
+  type: vless
+  server: 78.159.246.85
+  port: 2053
+  uuid: 95a608b6-bff1-4e10-bb61-0a39f221bb7d
+  udp: true
+  tls: true
+  servername: fitindoor.net
+  client-fingerprint: firefox
+  alpn:
+  - h2
+  - http/1.1
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/upload
+    host: fitindoor.net
+    mode: auto
+    x-padding-bytes: 100-1000
+    x-padding-obfs-mode: false
+    session-length: 0
+    uplink-chunk-size: 0
+    no-grpc-header: false
+    sc-max-each-post-bytes: 1000000
+    sc-min-posts-interval-ms: 30
+    reuse-settings:
+      max-concurrency: 16-32
+      max-connections: 0
+      c-max-reuse-times: 64-128
+      h-max-request-times: 0
+      h-max-reusable-secs: 0
+      h-keep-alive-period: 0
+- name: 🇦🇱 Албания · XHTTP XHTTP · Ios
+  type: vless
+  server: 188.225.77.143
+  port: 8458
+  uuid: 40c12ce6-b1c6-424e-862e-010a4585ff52
+  udp: true
+  tls: true
+  servername: ads.x5.ru
+  client-fingerprint: ios
+  reality-opts:
+    public-key: mLNQ8cirYSUCtYa5485RnCPzrmp2OfkI0ENmweDxJQc
+    short-id: 6ba85179e30d4fc2
+  network: xhttp
+  xhttp-opts:
+    path: /xh
+    mode: auto
+- name: 🇧🇬 Болгария · XHTTP randomquaint.net · Firefox
+  type: vless
+  server: 78.159.246.179
+  port: 8443
+  uuid: 6a2aff19-ff1f-4a13-96c8-a4d8986a9699
+  udp: true
+  tls: true
+  servername: randomquaint.net
+  client-fingerprint: firefox
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/upload
+    host: randomquaint.net
+    x-padding-bytes: 100-1000
+    x-padding-obfs-mode: false
+    session-length: 0
+    uplink-chunk-size: 0
+    no-grpc-header: false
+    sc-max-each-post-bytes: 1000000
+    sc-min-posts-interval-ms: 30
+    reuse-settings:
+      max-concurrency: 16-32
+      max-connections: 0
+      c-max-reuse-times: 64-128
+      h-max-request-times: 0
+      h-max-reusable-secs: 0
+      h-keep-alive-period: 0
+- name: 🇧🇬 Болгария · XHTTP fitindoor.net · Firefox
+  type: vless
+  server: 78.159.246.85
+  port: 8443
+  uuid: 6a2aff19-ff1f-4a13-96c8-a4d8986a9699
+  udp: true
+  tls: true
+  servername: fitindoor.net
+  client-fingerprint: firefox
+  alpn:
+  - http/1.1
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/upload
+    host: fitindoor.net
+    mode: auto
+    x-padding-bytes: 100-1000
+    x-padding-obfs-mode: false
+    session-length: 0
+    uplink-chunk-size: 0
+    no-grpc-header: false
+    sc-max-each-post-bytes: 1000000
+    sc-min-posts-interval-ms: 30
+    reuse-settings:
+      max-concurrency: 16-32
+      max-connections: 0
+      c-max-reuse-times: 64-128
+      h-max-request-times: 0
+      h-max-reusable-secs: 0
+      h-keep-alive-period: 0
+- name: 🇧🇬 Болгария · XHTTP summerculture.net · Firefox
+  type: vless
+  server: 78.159.250.84
+  port: 8443
+  uuid: 6a2aff19-ff1f-4a13-96c8-a4d8986a9699
+  udp: true
+  tls: true
+  servername: summerculture.net
+  client-fingerprint: firefox
+  alpn:
+  - http/1.1
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/upload
+    host: summerculture.net
+    mode: auto
+    x-padding-bytes: 100-1000
+    x-padding-obfs-mode: false
+    session-length: 0
+    uplink-chunk-size: 0
+    no-grpc-header: false
+    sc-max-each-post-bytes: 1000000
+    sc-min-posts-interval-ms: 30
+    reuse-settings:
+      max-concurrency: 16-32
+      max-connections: 0
+      c-max-reuse-times: 64-128
+      h-max-request-times: 0
+      h-max-reusable-secs: 0
+      h-keep-alive-period: 0
+- name: 🇧🇬 Болгария · XHTTP randomquaint.net · Firefox · 2
+  type: vless
+  server: 78.159.246.179
+  port: 8443
+  uuid: 6a2aff19-ff1f-4a13-96c8-a4d8986a9699
+  udp: true
+  tls: true
+  servername: randomquaint.net
+  client-fingerprint: firefox
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/upload
+    host: randomquaint.net
+- name: 🇩🇪 Германия · Vision VK · Random
+  type: vless
+  server: 185.229.9.234
+  port: 443
+  uuid: c5b5ef33-819e-4972-9a5a-4ad91f38507f
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: www.vk.com
+  client-fingerprint: random
+  reality-opts:
+    public-key: 7o36V1H4H_34kTMpwCfJmDB1bbd21Rgbk2dM_dAonyM
+    short-id: 0bb3fbdc6cb178d4
+  network: tcp
+- name: 🇩🇪 Германия · Vision VK · Firefox
+  type: vless
+  server: 185.229.9.234
+  port: 443
+  uuid: c5b5ef33-819e-4972-9a5a-4ad91f38507f
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: www.vk.com
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: 7o36V1H4H_34kTMpwCfJmDB1bbd21Rgbk2dM_dAonyM
+    short-id: 0bb3fbdc6cb178d4
+  network: tcp
+- name: 🇩🇪 Германия · Vision VK · Firefox · 2
+  type: vless
+  server: 185.229.9.234
+  port: 443
+  uuid: c5b5ef33-819e-4972-9a5a-4ad91f38507f
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: www.vk.com
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: 7o36V1H4H_34kTMpwCfJmDB1bbd21Rgbk2dM_dAonyM
+    short-id: 0bb3fbdc6cb178d4
+  network: tcp
+- name: 🇩🇪 Германия · Vision OK · Firefox
+  type: vless
+  server: 185.229.9.234
+  port: 443
+  uuid: c5b5ef33-819e-4972-9a5a-4ad91f38507f
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: api.ok.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: lIgF8B3ICGAQ6ExbRe9YDu8ZD1Ozzqu7-YO7hfuXfRw
+    short-id: cc8069f6c2cbcb32
+  network: tcp
+- name: 🇩🇪 Германия · Vision Yandex · Firefox
+  type: vless
+  server: 185.229.9.234
+  port: 443
+  uuid: c5b5ef33-819e-4972-9a5a-4ad91f38507f
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yandex.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: fsyvGBPzzwpnSA0UnJML_cDqviNSEdj9zktpC1EeFhY
+    short-id: 743541f932fa3959
+  network: tcp
+- name: 🇩🇪 Германия · Vision VK · Random · 2
+  type: vless
+  server: 185.229.9.234
+  port: 443
+  uuid: c5b5ef33-819e-4972-9a5a-4ad91f38507f
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: www.vk.com
+  client-fingerprint: random
+  reality-opts:
+    public-key: 7o36V1H4H_34kTMpwCfJmDB1bbd21Rgbk2dM_dAonyM
+    short-id: 0bb3fbdc6cb178d4
+  network: tcp
+- name: 🇩🇪 Германия · Vision OK · Firefox · 2
+  type: vless
+  server: 185.229.9.234
+  port: 443
+  uuid: c5b5ef33-819e-4972-9a5a-4ad91f38507f
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: api.ok.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: lIgF8B3ICGAQ6ExbRe9YDu8ZD1Ozzqu7-YO7hfuXfRw
+    short-id: cc8069f6c2cbcb32
+  network: tcp
+- name: 🇩🇪 Германия · Vision Yandex · Firefox · 2
+  type: vless
+  server: 185.229.9.234
+  port: 443
+  uuid: c5b5ef33-819e-4972-9a5a-4ad91f38507f
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yandex.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: fsyvGBPzzwpnSA0UnJML_cDqviNSEdj9zktpC1EeFhY
+    short-id: 743541f932fa3959
+  network: tcp
+- name: 🇩🇪 Германия · Vision Yandex · Chrome
+  type: vless
+  server: 185.229.9.234
+  port: 443
+  uuid: c5b5ef33-819e-4972-9a5a-4ad91f38507f
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yandex.ru
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: fsyvGBPzzwpnSA0UnJML_cDqviNSEdj9zktpC1EeFhY
+    short-id: 743541f932fa3959
+  network: tcp
+- name: 🇩🇪 Германия · XHTTP XHTTP · Firefox
+  type: vless
+  server: 78.159.240.159
+  port: 10654
+  uuid: 953358cb-82ba-4296-960d-6d2ec3468f4c
+  udp: true
+  tls: true
+  servername: bl3fk52.sysopnova.art
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: ds10ztOlMn8xfeIKEQ1m3I-tdem-abZbHKtJCU13CQM
+    short-id: 5c3fb122
+  network: xhttp
+  xhttp-opts:
+    path: /xhttp_client_upload
+    mode: packet-up
+- name: 🇩🇪 Германия · XHTTP rwyisq · Chrome
+  type: vless
+  server: 91.215.41.42
+  port: 443
+  uuid: 6e58f644-bc22-4dae-824a-4c3a760dc7a1
+  udp: true
+  tls: true
+  servername: rwyisq.edge-assets.ru
+  client-fingerprint: chrome
+  alpn:
+  - h2
+  - http/1.1
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/vjycfvml/sync/
+    host: rwyisq.edge-assets.ru
+    mode: packet-up
+    x-padding-bytes: 0
+    x-padding-obfs-mode: false
+    uplink-http-method: PUT
+    session-length: 0
+    uplink-data-placement: body
+    uplink-chunk-size: 0
+    no-grpc-header: false
+    sc-max-each-post-bytes: 1000000
+    sc-min-posts-interval-ms: 0
+    reuse-settings:
+      max-concurrency: 0
+      max-connections: 0
+      c-max-reuse-times: 0
+      h-max-request-times: 0
+      h-max-reusable-secs: 0
+      h-keep-alive-period: 0
+- name: 🇩🇪 Германия · XHTTP rwyisq · Chrome · 2
+  type: vless
+  server: 91.215.41.42
+  port: 443
+  uuid: 6e58f644-bc22-4dae-824a-4c3a760dc7a1
+  udp: true
+  tls: true
+  servername: rwyisq.edge-assets.ru
+  client-fingerprint: chrome
+  alpn:
+  - h2
+  - http/1.1
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/vjycfvml/sync/
+    host: rwyisq.edge-assets.ru
+    mode: packet-up
+- name: 🇩🇪 Германия · XHTTP rwyisq · Qq
+  type: vless
+  server: 91.215.41.42
+  port: 443
+  uuid: 6e58f644-bc22-4dae-824a-4c3a760dc7a1
+  udp: true
+  tls: true
+  servername: rwyisq.edge-assets.ru
+  client-fingerprint: qq
+  alpn:
+  - h2
+  - http/1.1
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/vjycfvml/sync/
+    host: rwyisq.edge-assets.ru
+    mode: packet-up
+    x-padding-bytes: 0
+    x-padding-obfs-mode: false
+    uplink-http-method: PUT
+    session-length: 0
+    uplink-data-placement: body
+    uplink-chunk-size: 0
+    no-grpc-header: false
+    sc-max-each-post-bytes: 1000000
+    sc-min-posts-interval-ms: 0
+    reuse-settings:
+      max-concurrency: 0
+      max-connections: 0
+      c-max-reuse-times: 0
+      h-max-request-times: 0
+      h-max-reusable-secs: 0
+      h-keep-alive-period: 0
+- name: 🇩🇪 Германия · XHTTP rwyisq · Edge
+  type: vless
+  server: 91.215.41.42
+  port: 443
+  uuid: 6e58f644-bc22-4dae-824a-4c3a760dc7a1
+  udp: true
+  tls: true
+  servername: rwyisq.edge-assets.ru
+  client-fingerprint: edge
+  alpn:
+  - h2
+  - http/1.1
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/vjycfvml/sync/
+    host: rwyisq.edge-assets.ru
+    mode: packet-up
+- name: 🇩🇪 Германия · XHTTP rwyisq · Firefox
+  type: vless
+  server: 91.215.41.42
+  port: 443
+  uuid: 6e58f644-bc22-4dae-824a-4c3a760dc7a1
+  udp: true
+  tls: true
+  servername: rwyisq.edge-assets.ru
+  client-fingerprint: firefox
+  alpn:
+  - h2
+  - http/1.1
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/vjycfvml/sync/
+    host: rwyisq.edge-assets.ru
+    mode: packet-up
+    x-padding-bytes: 0
+    x-padding-obfs-mode: false
+    uplink-http-method: PUT
+    session-length: 0
+    uplink-data-placement: body
+    uplink-chunk-size: 0
+    no-grpc-header: false
+    sc-max-each-post-bytes: 1000000
+    sc-min-posts-interval-ms: 0
+    reuse-settings:
+      max-concurrency: 0
+      max-connections: 0
+      c-max-reuse-times: 0
+      h-max-request-times: 0
+      h-max-reusable-secs: 0
+      h-keep-alive-period: 0
+- name: 🇩🇪 Германия · Vision Yandex · Chrome · 2
+  type: vless
+  server: 185.229.9.234
+  port: 443
+  uuid: c5b5ef33-819e-4972-9a5a-4ad91f38507f
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yandex.ru
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: fsyvGBPzzwpnSA0UnJML_cDqviNSEdj9zktpC1EeFhY
+    short-id: 743541f932fa3959
+  network: tcp
+- name: 🇩🇪 Германия · XHTTP rwyisq · Safari
+  type: vless
+  server: 91.215.41.42
+  port: 443
+  uuid: 6e58f644-bc22-4dae-824a-4c3a760dc7a1
+  udp: true
+  tls: true
+  servername: rwyisq.edge-assets.ru
+  client-fingerprint: safari
+  alpn:
+  - h2
+  - http/1.1
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/vjycfvml/sync/
+    host: rwyisq.edge-assets.ru
+    mode: packet-up
+- name: 🇩🇪 Германия · XHTTP rwyisq · Ios
+  type: vless
+  server: 91.215.41.42
+  port: 443
+  uuid: 6e58f644-bc22-4dae-824a-4c3a760dc7a1
+  udp: true
+  tls: true
+  servername: rwyisq.edge-assets.ru
+  client-fingerprint: ios
+  alpn:
+  - h2
+  - http/1.1
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/vjycfvml/sync/
+    host: rwyisq.edge-assets.ru
+    mode: packet-up
+- name: 🇩🇪 Германия · XHTTP rwyisq · Qq · 2
+  type: vless
+  server: 91.215.41.42
+  port: 443
+  uuid: 6e58f644-bc22-4dae-824a-4c3a760dc7a1
+  udp: true
+  tls: true
+  servername: rwyisq.edge-assets.ru
+  client-fingerprint: qq
+  alpn:
+  - h2
+  - http/1.1
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/vjycfvml/sync/
+    host: rwyisq.edge-assets.ru
+    mode: packet-up
+- name: 🇩🇪 Германия · XHTTP XHTTP · Chrome
+  type: vless
+  server: 91.215.41.42
+  port: 443
+  uuid: 6e58f644-bc22-4dae-824a-4c3a760dc7a1
+  udp: true
+  tls: true
+  servername: rwyisq.edge-assets.ru
+  client-fingerprint: chrome
+  alpn:
+  - h2
+  - http/1.1
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/vjycfvml/sync/
+    mode: packet-up
+- name: 🇩🇪 Германия · XHTTP XHTTP · Firefox · 2
+  type: vless
+  server: 91.215.41.42
+  port: 443
+  uuid: 6e58f644-bc22-4dae-824a-4c3a760dc7a1
+  udp: true
+  tls: true
+  servername: rwyisq.edge-assets.ru
+  client-fingerprint: firefox
+  alpn:
+  - h2
+  - http/1.1
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/vjycfvml/sync/
+    mode: packet-up
+- name: 🇩🇪 Германия · XHTTP rwyisq · Ios · 2
+  type: vless
+  server: 91.215.41.42
+  port: 443
+  uuid: 6e58f644-bc22-4dae-824a-4c3a760dc7a1
+  udp: true
+  tls: true
+  servername: rwyisq.edge-assets.ru
+  client-fingerprint: ios
+  alpn:
+  - h2
+  - http/1.1
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/vjycfvml/sync/
+    host: rwyisq.edge-assets.ru
+    mode: packet-up
+    x-padding-bytes: 0
+    x-padding-obfs-mode: false
+    uplink-http-method: PUT
+    session-length: 0
+    uplink-data-placement: body
+    uplink-chunk-size: 0
+    no-grpc-header: false
+    sc-max-each-post-bytes: 1000000
+    sc-min-posts-interval-ms: 0
+    reuse-settings:
+      max-concurrency: 0
+      max-connections: 0
+      c-max-reuse-times: 0
+      h-max-request-times: 0
+      h-max-reusable-secs: 0
+      h-keep-alive-period: 0
+- name: 🇩🇪 Германия · XHTTP dzv5pi · Chrome
+  type: vless
+  server: 91.215.41.42
+  port: 443
+  uuid: 6e58f644-bc22-4dae-824a-4c3a760dc7a1
+  udp: true
+  tls: true
+  servername: dzv5pi.edge-assets.ru
+  client-fingerprint: chrome
+  alpn:
+  - h2
+  - http/1.1
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/i3vuslq5/sync/
+    host: dzv5pi.edge-assets.ru
+    mode: packet-up
+    x-padding-bytes: 0
+    x-padding-obfs-mode: false
+    uplink-http-method: PUT
+    session-length: 0
+    uplink-data-placement: body
+    uplink-chunk-size: 0
+    no-grpc-header: false
+    sc-max-each-post-bytes: 1000000
+    sc-min-posts-interval-ms: 0
+    reuse-settings:
+      max-concurrency: 0
+      max-connections: 0
+      c-max-reuse-times: 0
+      h-max-request-times: 0
+      h-max-reusable-secs: 0
+      h-keep-alive-period: 0
+- name: 🇩🇪 Германия · XHTTP dzv5pi · Safari
+  type: vless
+  server: 91.215.41.42
+  port: 443
+  uuid: 6e58f644-bc22-4dae-824a-4c3a760dc7a1
+  udp: true
+  tls: true
+  servername: dzv5pi.edge-assets.ru
+  client-fingerprint: safari
+  alpn:
+  - h2
+  - http/1.1
+  network: xhttp
+  xhttp-opts:
+    path: /api/v1/i3vuslq5/sync/
+    host: dzv5pi.edge-assets.ru
+    mode: packet-up
+    x-padding-bytes: 0
+    x-padding-obfs-mode: false
+    uplink-http-method: PUT
+    session-length: 0
+    uplink-data-placement: body
+    uplink-chunk-size: 0
+    no-grpc-header: false
+    sc-max-each-post-bytes: 1000000
+    sc-min-posts-interval-ms: 0
+    reuse-settings:
+      max-concurrency: 0
+      max-connections: 0
+      c-max-reuse-times: 0
+      h-max-request-times: 0
+      h-max-reusable-secs: 0
+      h-keep-alive-period: 0
+- name: 🇩🇪 Германия · Vision Yandex · Firefox · 3
+  type: vless
+  server: 185.229.9.175
+  port: 443
+  uuid: 426e2233-2afa-43ac-a59a-e614d958811c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yandex.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: 1ea_kTf2MvXh9PtpzQdjQWb5ls5BjyUtSbn-qiR8ZXk
+    short-id: cb0e256070ac91c7
+  network: tcp
+- name: 🇩🇪 Германия · Vision Yandex · Firefox · 4
+  type: vless
+  server: 188.225.45.79
+  port: 7443
+  uuid: 426e2233-2afa-43ac-a59a-e614d958811c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: passport.yandex.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: 0w339GBhpDiYwa9Wgqu3z3epu8dHAzeYUFXPtvzK8To
+    short-id: 190c27ae5f2e4d2c
+  network: tcp
+- name: 🇩🇪 Германия · WS WS · Edge
+  type: vless
+  server: 185.86.145.142
+  port: 443
+  uuid: 426e2233-2afa-43ac-a59a-e614d958811c
+  udp: true
+  tls: true
+  servername: n2.185-86-145-142.sslip.io
+  client-fingerprint: edge
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /e7ws
+- name: 🇩🇪 Германия · Vision Yandex · Firefox · 5
+  type: vless
+  server: 87.242.94.66
+  port: 7452
+  uuid: 426e2233-2afa-43ac-a59a-e614d958811c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: passport.yandex.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: 0w339GBhpDiYwa9Wgqu3z3epu8dHAzeYUFXPtvzK8To
+    short-id: 190c27ae5f2e4d2c
+  network: tcp
+- name: 🇩🇪 Германия · Vision OK · Firefox · 3
+  type: vless
+  server: 185.229.9.234
+  port: 443
+  uuid: 426e2233-2afa-43ac-a59a-e614d958811c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: api.ok.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: lIgF8B3ICGAQ6ExbRe9YDu8ZD1Ozzqu7-YO7hfuXfRw
+    short-id: cc8069f6c2cbcb32
+  network: tcp
+- name: 🇩🇪 Германия · Vision MAX · Firefox
+  type: vless
+  server: 185.229.9.175
+  port: 443
+  uuid: 426e2233-2afa-43ac-a59a-e614d958811c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: max.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: 2QoNARj5aaa5-kUEiwx38KzbbiENQZ95V7x9jFo6f2A
+    short-id: 88a84e3390fcf4a7
+  network: tcp
+- name: 🇩🇪 Германия · Vision MAX · Firefox · 2
+  type: vless
+  server: 185.229.9.234
+  port: 443
+  uuid: 426e2233-2afa-43ac-a59a-e614d958811c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: max.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: AD7roAsP-vrlxeyfnVEWj7Cq_2viTSICXo2Psm6B_3E
+    short-id: cb425a961bb7d67c
+  network: tcp
+- name: 🇩🇪 Германия · Vision VK · Firefox · 3
+  type: vless
+  server: 185.229.9.234
+  port: 443
+  uuid: 426e2233-2afa-43ac-a59a-e614d958811c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: www.vk.com
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: 7o36V1H4H_34kTMpwCfJmDB1bbd21Rgbk2dM_dAonyM
+    short-id: 0bb3fbdc6cb178d4
+  network: tcp
+- name: 🇩🇪 Германия · Vision MAX · Firefox · 3
+  type: vless
+  server: 185.229.9.79
+  port: 443
+  uuid: 426e2233-2afa-43ac-a59a-e614d958811c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: max.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: AD7roAsP-vrlxeyfnVEWj7Cq_2viTSICXo2Psm6B_3E
+    short-id: cb425a961bb7d67c
+  network: tcp
+- name: 🇩🇪 Германия · Vision VK · Firefox · 4
+  type: vless
+  server: 185.229.9.175
+  port: 443
+  uuid: 426e2233-2afa-43ac-a59a-e614d958811c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: www.vk.com
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: ZO7C9aMpoVJ6CmkKWUBS20eKe542_tGIc6wZFGB-yjY
+    short-id: b4e5b7cefcd0d47c
+  network: tcp
+- name: 🇩🇪 Германия · Vision Yandex · Firefox · 6
+  type: vless
+  server: 185.229.9.79
+  port: 443
+  uuid: 426e2233-2afa-43ac-a59a-e614d958811c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yandex.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: fsyvGBPzzwpnSA0UnJML_cDqviNSEdj9zktpC1EeFhY
+    short-id: 743541f932fa3959
+  network: tcp
+- name: 🇩🇪 Германия · WS Nehtar · Firefox
+  type: vless
+  server: 95.129.236.149
+  port: 443
+  uuid: 426e2233-2afa-43ac-a59a-e614d958811c
+  udp: true
+  tls: true
+  servername: d.nehtar.ru
+  client-fingerprint: firefox
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /gateway/v1/ws/74c4d5e82a8e50ccf09fc628c17dc9be
+- name: 🇩🇪 Германия · WS CDN · Firefox
+  type: vless
+  server: 31.177.111.140
+  port: 443
+  uuid: 426e2233-2afa-43ac-a59a-e614d958811c
+  udp: true
+  tls: true
+  servername: cdn.rucdncomp.pro
+  client-fingerprint: firefox
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /client/collect/6b3a32fb9f37/
+- name: 🇩🇪 Германия · Vision OK · Firefox · 4
+  type: vless
+  server: 185.229.9.175
+  port: 443
+  uuid: 426e2233-2afa-43ac-a59a-e614d958811c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: api.ok.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: Eutx4frdhG1y7THj7k3CjazAsrCMj932RtbV4a1QfQk
+    short-id: d5b6308860d578bb
+  network: tcp
+- name: 🇩🇪 Германия · Vision MAX · Firefox · 4
+  type: vless
+  server: 185.229.9.235
+  port: 46005
+  uuid: 426e2233-2afa-43ac-a59a-e614d958811c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: max.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: tP_mtYuA3fZq8C6WatAA4TmDv0_Wigq9xYcmb5UsTRA
+    short-id: 93653ee07ff5124c
+  network: tcp
+- name: 🇩🇪 Германия · Vision Yandex · Firefox · 7
+  type: vless
+  server: 185.229.9.234
+  port: 443
+  uuid: 426e2233-2afa-43ac-a59a-e614d958811c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yandex.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: fsyvGBPzzwpnSA0UnJML_cDqviNSEdj9zktpC1EeFhY
+    short-id: 743541f932fa3959
+  network: tcp
+- name: 🇩🇪 Германия · Vision OK · Firefox · 5
+  type: vless
+  server: 185.229.9.79
+  port: 443
+  uuid: 426e2233-2afa-43ac-a59a-e614d958811c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: api.ok.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: lIgF8B3ICGAQ6ExbRe9YDu8ZD1Ozzqu7-YO7hfuXfRw
+    short-id: cc8069f6c2cbcb32
+  network: tcp
+- name: 🇩🇪 Германия · Vision VK · Firefox · 5
+  type: vless
+  server: 185.229.9.79
+  port: 443
+  uuid: 426e2233-2afa-43ac-a59a-e614d958811c
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: www.vk.com
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: 7o36V1H4H_34kTMpwCfJmDB1bbd21Rgbk2dM_dAonyM
+    short-id: 0bb3fbdc6cb178d4
+  network: tcp
+- name: 🇩🇪 Германия · Vision Vision · Firefox
+  type: vless
+  server: 31.177.111.243
+  port: 443
+  uuid: fde6f717-8d79-48b8-ab84-0a25c2782154
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: smart.heartbeatai.link
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: t192lvTN6ZtCch9LSAkLOKnKuyYdLLaTJx8tn3VRHz0
+    short-id: dfdee30a27b11f0f
+  network: tcp
+- name: 🇪🇪 Эстония · gRPC gRPC · Random
+  type: vless
+  server: 188.225.83.133
+  port: 443
+  uuid: 4c346148-ece9-487a-bffb-ba5a399b2d71
+  udp: true
+  tls: true
+  servername: xnodtwx.artemida.live
+  client-fingerprint: random
+  reality-opts:
+    public-key: JqmkP6Fys7jN2Fu1iDJuWKVNPhlgHfy_pj1DHFVKVhw
+    short-id: a1b2c3d4e5f6a7b8
+  network: grpc
+- name: 🇪🇪 Эстония · gRPC gRPC · Firefox
+  type: vless
+  server: 188.225.83.133
+  port: 443
+  uuid: 4c346148-ece9-487a-bffb-ba5a399b2d71
+  udp: true
+  tls: true
+  servername: xnodtwx.artemida.live
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: JqmkP6Fys7jN2Fu1iDJuWKVNPhlgHfy_pj1DHFVKVhw
+    short-id: a1b2c3d4e5f6a7b8
+  network: grpc
+- name: 🇫🇮 Финляндия · Vision Yandex · Random
+  type: vless
+  server: 37.18.14.145
+  port: 7445
+  uuid: 66217279-de40-4b62-b2bb-9c33b8fb7a01
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: passport.yandex.ru
+  client-fingerprint: random
+  reality-opts:
+    public-key: S_s3FVodJIep88KnIgT0cZLUMB2tAJHTJEn0o-J03G8
+    short-id: 283f4b51fbe39ad9
+  network: tcp
+- name: 🇫🇷 Франция · gRPC VK · Firefox
+  type: vless
+  server: 79.174.92.222
+  port: 443
+  uuid: 03ca8c3f-e777-45b5-a1b1-592094ca99ee
+  udp: true
+  tls: true
+  servername: m.vk.com
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: _PYBo3dyZRpGC44vADqcmlBCSeAVh1X8l3mulghVsTI
+    short-id: a1b2c3d4
+  network: grpc
+- name: 🇫🇷 Франция · gRPC VK · Default FP
+  type: vless
+  server: 79.174.92.222
+  port: 443
+  uuid: 03ca8c3f-e777-45b5-a1b1-592094ca99ee
+  udp: true
+  tls: true
+  servername: m.vk.com
+  reality-opts:
+    public-key: _PYBo3dyZRpGC44vADqcmlBCSeAVh1X8l3mulghVsTI
+    short-id: a1b2c3d4
+  network: grpc
+- name: 🇫🇷 Франция · gRPC VK · Chrome
+  type: vless
+  server: 79.174.92.222
+  port: 443
+  uuid: 03ca8c3f-e777-45b5-a1b1-592094ca99ee
+  udp: true
+  tls: true
+  servername: m.vk.com
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: _PYBo3dyZRpGC44vADqcmlBCSeAVh1X8l3mulghVsTI
+    short-id: a1b2c3d4
+  network: grpc
+- name: 🇳🇴 Норвегия · gRPC Yandex · Qq
+  type: vless
+  server: 87.242.95.164
+  port: 9443
+  uuid: fde6f717-8d79-48b8-ab84-0a25c2782154
+  udp: true
+  tls: true
+  servername: passport.yandex.ru
+  client-fingerprint: qq
+  reality-opts:
+    public-key: 9YcV-gA7iaXFnI0HXQa624OIqm4zxO_U2eMCWXQAiCQ
+    short-id: 8375b32501373f41
+  network: grpc
+  grpc-opts:
+    grpc-service-name: grpc
+- name: 🇵🇱 Польша · WS WS · Firefox
+  type: vless
+  server: 91.215.43.248
+  port: 443
+  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
+  udp: true
+  tls: true
+  servername: my.kempekl.online
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /gateway/v1/ws/a64eb463966ba9c4bfd628f1de0362ae
+- name: 🇵🇱 Польша · WS my · Firefox
+  type: vless
+  server: 91.215.43.248
+  port: 443
+  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
+  udp: true
+  tls: true
+  servername: my.kempekl.online
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /gateway/v1/ws/a64eb463966ba9c4bfd628f1de0362ae
+    headers:
+      Host: my.kempekl.online
+- name: 🇵🇱 Польша · WS my · Qq
+  type: vless
+  server: 91.215.43.248
+  port: 443
+  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
+  udp: true
+  tls: true
+  servername: my.kempekl.online
+  client-fingerprint: qq
+  network: ws
+  ws-opts:
+    path: /gateway/v1/ws/a64eb463966ba9c4bfd628f1de0362ae
+    headers:
+      Host: my.kempekl.online
+- name: 🇵🇱 Польша · WS my · Chrome
+  type: vless
+  server: 91.215.43.248
+  port: 443
+  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
+  udp: true
+  tls: true
+  servername: my.kempekl.online
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /gateway/v1/ws/a64eb463966ba9c4bfd628f1de0362ae
+    headers:
+      Host: my.kempekl.online
+- name: 🇵🇱 Польша · WS my · Safari
+  type: vless
+  server: 91.215.43.248
+  port: 443
+  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
+  udp: true
+  tls: true
+  servername: my.kempekl.online
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /gateway/v1/ws/a64eb463966ba9c4bfd628f1de0362ae
+    headers:
+      Host: my.kempekl.online
+- name: 🇵🇱 Польша · WS my · Ios
+  type: vless
+  server: 91.215.43.248
+  port: 443
+  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
+  udp: true
+  tls: true
+  servername: my.kempekl.online
+  client-fingerprint: ios
+  network: ws
+  ws-opts:
+    path: /gateway/v1/ws/a64eb463966ba9c4bfd628f1de0362ae
+    headers:
+      Host: my.kempekl.online
+- name: 🇵🇱 Польша · gRPC OK · Firefox
+  type: vless
+  server: 185.229.9.176
+  port: 46018
+  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
+  udp: true
+  tls: true
+  servername: ligastavok.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: een4U3X5mnY1gH2swiakXS9BJ8P4omf8Qp_s8sTp_3Y
+    short-id: 68ae5e7c11f80af5
+  network: grpc
+- name: 🇵🇱 Польша · WS WS · Firefox · 2
+  type: vless
+  server: 95.129.236.54
+  port: 443
+  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
+  udp: true
+  tls: true
+  servername: client.lk.nehtar.online
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /gateway/v1/ws/7b101e2ddcdc731ab25531e04f964444
+- name: 🇵🇱 Польша · gRPC OK · Random
+  type: vless
+  server: 185.229.9.176
+  port: 46018
+  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
+  udp: true
+  tls: true
+  servername: ligastavok.ru
+  client-fingerprint: random
+  reality-opts:
+    public-key: een4U3X5mnY1gH2swiakXS9BJ8P4omf8Qp_s8sTp_3Y
+    short-id: 68ae5e7c11f80af5
+  network: grpc
+- name: 🇵🇱 Польша · Vision Vision · Chrome
+  type: vless
+  server: 90.156.218.163
+  port: 443
+  uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: eh.vk.ru
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI
+    short-id: db04ce8bdb8900f1
+  network: tcp
+- name: 🇵🇱 Польша · WS my · Default FP
+  type: vless
+  server: 91.215.43.248
+  port: 443
+  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
+  udp: true
+  tls: true
+  servername: my.kempekl.online
+  network: ws
+  ws-opts:
+    path: /gateway/v1/ws/a64eb463966ba9c4bfd628f1de0362ae
+    headers:
+      Host: my.kempekl.online
+- name: 🇵🇱 Польша · Vision Vision · Ios
+  type: vless
+  server: 90.156.218.163
+  port: 443
+  uuid: adc11f30-e4cb-4985-bf5e-f9ded69c019f
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: eh.vk.ru
+  client-fingerprint: ios
+  reality-opts:
+    public-key: fNfokzklCF4l_c8k8PciOCjm5ecNoF_sNLjEtaO-xzI
+    short-id: db04ce8bdb8900f1
+  network: tcp
+- name: 🇵🇱 Польша · Vision Vision · Random
+  type: vless
+  server: 78.159.250.34
+  port: 4510
+  uuid: c3db7657-88ce-42a6-b998-1e0364b277ac
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: 9c99da.usecache.net
+  client-fingerprint: random
+  reality-opts:
+    public-key: hkvjyE8WMKHvdGfMta7PAIGz6HAv2WiXvWvAQmsE_DM
+    short-id: 2d0c188798bae174
+  network: tcp
+- name: 🇵🇱 Польша · Vision Yandex · Random
+  type: vless
+  server: 185.229.9.240
+  port: 443
+  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: yandex.ru
+  client-fingerprint: random
+  reality-opts:
+    public-key: 1uox9vg8wi_akm_7I_v8xM0MF32jTtqkxlvnqC9Yux8
+    short-id: 27e53bbcab7593d7
+  network: tcp
+- name: 🇵🇱 Польша · Vision MAX · Firefox
+  type: vless
+  server: 185.229.9.240
+  port: 443
+  uuid: a5893c8b-28a2-4947-9a1c-708db25506c3
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: max.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: YBIVqJtsRjtlEYmEyfRRL_rh5k49rY20jMVGbaQlySI
+    short-id: 27e53bbcab7593d7
+  network: tcp
+- name: 🇸🇪 Швеция · Vision Vision · Firefox
+  type: vless
+  server: 188.225.77.254
+  port: 443
+  uuid: 9cfb9099-439f-4bd2-87d3-54e67269fdc3
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: io.ozone.ru
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: rJ-fFNYXh7WW9LuYe1N71fh7nAEe5i09Pi5ZDSDlH1s
+    short-id: 4951a2313524dd8f
+  network: tcp
+- name: 🇸🇪 Швеция · Vision Vision · Random
+  type: vless
+  server: 188.225.77.254
+  port: 443
+  uuid: 9cfb9099-439f-4bd2-87d3-54e67269fdc3
+  udp: true
+  flow: xtls-rprx-vision
+  tls: true
+  servername: io.ozone.ru
+  client-fingerprint: random
+  reality-opts:
+    public-key: rJ-fFNYXh7WW9LuYe1N71fh7nAEe5i09Pi5ZDSDlH1s
+    short-id: 4951a2313524dd8f
+  network: tcp
+- name: 'TXT · 🇷🇺 Beget · #1'
+  type: vless
+  server: 45.12.75.242
+  port: 26424
+  uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
+  udp: true
+  tls: true
+  servername: ya.ru
+  client-fingerprint: chrome
+  reality-opts:
+    public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
+    short-id: 23103e1e
+  network: tcp
+- name: 'TXT · 🇷🇺 Beget · #2'
+  type: vless
+  server: 45.12.75.242
+  port: 26424
+  uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
+  udp: true
+  tls: true
+  servername: ya.ru
+  client-fingerprint: qq
+  reality-opts:
+    public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
+    short-id: 23103e1e
+  network: tcp
+- name: 'TXT · 🇷🇺 Beget · #3'
+  type: vless
+  server: 45.12.75.242
+  port: 26424
+  uuid: 633f424e-2b11-48da-a6b3-a849dd71456f
+  udp: true
+  tls: true
+  servername: ya.ru
+  reality-opts:
+    public-key: l8AubqcxQO-HRFJy4pZL1vbLOo-eXit69s-XulSELE0
+    short-id: 23103e1e
+  network: tcp
+- name: 'TXT · 🇷🇺 Delta · #4'
+  type: vless
+  server: 185.229.9.135
+  port: 443
+  uuid: 8f763a7f-4cda-4db1-90e3-9aeae0860dc0
+  udp: true
+  tls: true
+  servername: business.lesotorg-kirov.ru
+  network: ws
+  ws-opts:
+    path: /chws
+    headers:
+      Host: business.lesotorg-kirov.ru
+- name: 'TXT · 🇩🇪 Germany · #5'
+  type: vless
+  server: 217.19.122.156
+  port: 443
+  uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+  udp: true
+  tls: true
+  servername: z1q3pv4g78.rucdncomp.pro
+  client-fingerprint: safari
+  network: ws
+  ws-opts:
+    path: /useraction/events/b892639b7195/
+    headers:
+      Host: z1q3pv4g78.rucdncomp.pro
+- name: 'TXT · 🇩🇪 Germany · #6'
+  type: vless
+  server: 217.19.122.156
+  port: 443
+  uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+  udp: true
+  tls: true
+  servername: z1q3pv4g78.rucdncomp.pro
+  client-fingerprint: chrome
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /useraction/events/b892639b7195/
+    headers:
+      Host: z1q3pv4g78.rucdncomp.pro
+- name: 'TXT · 🇩🇪 Germany · #7'
+  type: vless
+  server: 217.19.122.156
+  port: 443
+  uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+  udp: true
+  tls: true
+  servername: z1q3pv4g78.rucdncomp.pro
+  client-fingerprint: ios
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /useraction/events/b892639b7195/
+    headers:
+      Host: z1q3pv4g78.rucdncomp.pro
+- name: 'TXT · 🇩🇪 Germany · #8'
+  type: vless
+  server: 217.19.122.156
+  port: 443
+  uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+  udp: true
+  tls: true
+  servername: z1q3pv4g78.rucdncomp.pro
+  client-fingerprint: safari
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /useraction/events/b892639b7195/
+    headers:
+      Host: z1q3pv4g78.rucdncomp.pro
+- name: 'TXT · 🇩🇪 Germany · #9'
+  type: vless
+  server: 188.72.103.4
+  port: 443
+  uuid: 9737cc16-7266-45ce-94d9-6e05a45e0b9c
+  udp: true
+  tls: true
+  servername: swit.nnight.sbs
+  client-fingerprint: firefox
+  alpn:
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v4/media/session/poll
+    host: swit.nnight.sbs
+    mode: packet-up
+- name: 'TXT · 🇩🇪 Germany · #10'
+  type: vless
+  server: 217.19.122.156
+  port: 443
+  uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+  udp: true
+  tls: true
+  servername: z1q3pv4g78.rucdncomp.pro
+  client-fingerprint: firefox
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /useraction/events/b892639b7195/
+    headers:
+      Host: z1q3pv4g78.rucdncomp.pro
+- name: 'TXT · 🇩🇪 Germany · #11'
+  type: vless
+  server: 217.19.122.156
+  port: 443
+  uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+  udp: true
+  tls: true
+  servername: z1q3pv4g78.rucdncomp.pro
+  client-fingerprint: ios
+  network: ws
+  ws-opts:
+    path: /useraction/events/b892639b7195/
+    headers:
+      Host: z1q3pv4g78.rucdncomp.pro
+- name: 'TXT · 🇩🇪 Germany · #12'
+  type: vless
+  server: 217.19.122.156
+  port: 443
+  uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+  udp: true
+  tls: true
+  servername: z1q3pv4g78.rucdncomp.pro
+  client-fingerprint: firefox
+  network: ws
+  ws-opts:
+    path: /useraction/events/b892639b7195/
+    headers:
+      Host: z1q3pv4g78.rucdncomp.pro
+- name: 'TXT · 🇩🇪 Germany · #13'
+  type: vless
+  server: 217.19.122.156
+  port: 443
+  uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+  udp: true
+  tls: true
+  servername: z1q3pv4g78.rucdncomp.pro
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /useraction/events/b892639b7195/
+    headers:
+      Host: z1q3pv4g78.rucdncomp.pro
+- name: 'TXT · 🇩🇪 Germany · #14'
+  type: vless
+  server: 217.19.122.156
+  port: 443
+  uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+  udp: true
+  tls: true
+  servername: z1q3pv4g78.rucdncomp.pro
+  client-fingerprint: chrome
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /useraction/events/b892639b7195/
+    headers:
+      Host: z1q3pv4g78.rucdncomp.pro
+- name: 'TXT · 🇩🇪 Germany · #15'
+  type: vless
+  server: 217.19.122.156
+  port: 443
+  uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+  udp: true
+  tls: true
+  servername: z1q3pv4g78.rucdncomp.pro
+  alpn:
+  - http/1.1
+  network: ws
+  ws-opts:
+    path: /useraction/events/b892639b7195/
+- name: 'TXT · 🇩🇪 Germany · #16'
+  type: vless
+  server: 217.19.122.156
+  port: 443
+  uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+  udp: true
+  tls: true
+  servername: z1q3pv4g78.rucdncomp.pro
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /useraction/events/b892639b7195/
+    headers:
+      Host: z1q3pv4g78.rucdncomp.pro
+- name: 'TXT · 🇩🇪 Germany · #17'
+  type: vless
+  server: 217.19.122.156
+  port: 443
+  uuid: c720cb74-4c84-4fce-b8ae-637dbaa16199
+  udp: true
+  tls: true
+  servername: z1q3pv4g78.rucdncomp.pro
+  client-fingerprint: chrome
+  network: ws
+  ws-opts:
+    path: /useraction/events/b892639b7195/
+- name: 'TXT · 🇬🇧 United Kingdom · #18'
+  type: vless
+  server: 82.202.183.9
+  port: 443
+  uuid: 1ba0439d-384c-4a6e-9560-0439698beb2a
+  udp: true
+  tls: true
+  servername: h4.smart-life.agency
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: 1A9loATtqTbKfErpj24clMebWdbmBRDgUIADwtlvtAw
+    short-id: 70c20a2f5a7d542e
+  network: grpc
+  grpc-opts:
+    grpc-service-name: google.storage.v2.Storage
+- name: 'TXT · 🇬🇧 United Kingdom · #19'
+  type: vless
+  server: 82.202.183.9
+  port: 443
+  uuid: 8822fe1c-7a83-49c0-af96-c2027cb6ddd5
+  udp: true
+  tls: true
+  servername: h4.smart-life.agency
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: 1A9loATtqTbKfErpj24clMebWdbmBRDgUIADwtlvtAw
+    short-id: 70c20a2f5a7d542e
+  network: grpc
+  grpc-opts:
+    grpc-service-name: google.storage.v2.Storage
+- name: 'TXT · 🇬🇧 United Kingdom · #20'
+  type: vless
+  server: 82.202.183.9
+  port: 443
+  uuid: 928a3079-7c20-40cc-9c92-e878ba959dcd
+  udp: true
+  tls: true
+  servername: h4.smart-life.agency
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: 1A9loATtqTbKfErpj24clMebWdbmBRDgUIADwtlvtAw
+    short-id: 70c20a2f5a7d542e
+  network: grpc
+  grpc-opts:
+    grpc-service-name: google.storage.v2.Storage
+- name: 'TXT · 🇬🇧 United Kingdom · #21'
+  type: vless
+  server: 82.202.183.9
+  port: 443
+  uuid: 3eb47299-50cd-46ee-9511-49115c56ed37
+  udp: true
+  tls: true
+  servername: h4.smart-life.agency
+  client-fingerprint: firefox
+  reality-opts:
+    public-key: 1A9loATtqTbKfErpj24clMebWdbmBRDgUIADwtlvtAw
+    short-id: 70c20a2f5a7d542e
+  network: grpc
+  grpc-opts:
+    grpc-service-name: google.storage.v2.Storage
+- name: 'TXT · 🇵🇱 Poland · #22'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: firefox
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    host: static.bakarova-top.ru
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #23'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: firefox
+  alpn:
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    host: static.bakarova-top.ru
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #24'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: qq
+  alpn:
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    host: static.bakarova-top.ru
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #25'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: ios
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    host: static.bakarova-top.ru
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #26'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: firefox
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+- name: 'TXT · 🇵🇱 Poland · #27'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: qq
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+- name: 'TXT · 🇵🇱 Poland · #28'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: chrome
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+- name: 'TXT · 🇵🇱 Poland · #29'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: chrome
+  alpn:
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    host: static.bakarova-top.ru
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #30'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: edge
+  alpn:
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    host: static.bakarova-top.ru
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #31'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: chrome
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    host: static.bakarova-top.ru
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #32'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: edge
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+- name: 'TXT · 🇵🇱 Poland · #33'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: ios
+  alpn:
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    host: static.bakarova-top.ru
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #34'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: safari
+  alpn:
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    host: static.bakarova-top.ru
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #35'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  alpn:
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    host: static.bakarova-top.ru
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #36'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: qq
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    host: static.bakarova-top.ru
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #37'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: edge
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    host: static.bakarova-top.ru
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #38'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: firefox
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    mode: auto
+- name: 'TXT · 🇵🇱 Poland · #39'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: chrome
+  alpn:
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #40'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: edge
+  alpn:
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #41'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: safari
+  alpn:
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #42'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: edge
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    mode: auto
+- name: 'TXT · 🇵🇱 Poland · #43'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: qq
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    mode: auto
+- name: 'TXT · 🇵🇱 Poland · #44'
+  type: vless
+  server: 188.72.103.4
+  port: 443
+  uuid: 9737cc16-7266-45ce-94d9-6e05a45e0b9c
+  udp: true
+  tls: true
+  servername: poland.nnight.cfd
+  client-fingerprint: firefox
+  network: xhttp
+  xhttp-opts:
+    path: /api/v4/media/session/poll
+    host: poland.nnight.cfd
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #45'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: chrome
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    mode: auto
+- name: 'TXT · 🇵🇱 Poland · #46'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  alpn:
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #47'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: chrome
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #48'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: firefox
+  alpn:
+  - h2
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    mode: packet-up
+- name: 'TXT · 🇵🇱 Poland · #49'
+  type: vless
+  server: 185.178.208.140
+  port: 443
+  uuid: ea277838-a188-44f1-a2e8-94aa110c4f27
+  udp: true
+  tls: true
+  servername: static.bakarova-top.ru
+  client-fingerprint: edge
+  network: xhttp
+  xhttp-opts:
+    path: /api/v2/events
+    mode: packet-up
+proxy-groups:
+- name: 🚀 Подключение
+  type: select
+  proxies:
+  - ⚡ AUTO
+  - 🎯 Вручную
+  - 🔄 Узлы из TXT
+  - 🇷🇺 Россия
+  - 🇦🇱 Албания
+  - 🇧🇬 Болгария
+  - 🇩🇪 Германия
+  - 🇪🇪 Эстония
+  - 🇫🇮 Финляндия
+  - 🇫🇷 Франция
+  - 🇳🇴 Норвегия
+  - 🇵🇱 Польша
+  - 🇸🇪 Швеция
+  - DIRECT
+- name: ⚡ AUTO
+  type: url-test
+  proxies:
+  - 🇷🇺 Россия VK · XHTTP · Firefox
+  - 🇷🇺 Россия VK · XHTTP · Default FP
+  - 🇷🇺 Россия Beget · Reality · Chrome
+  - 🇷🇺 Россия Beget · Reality · Qq
+  - 🇷🇺 Россия Beget · gRPC · Random
+  - 🇷🇺 Россия Beget · gRPC · Ios
+  - 🇷🇺 Россия Beget · gRPC · Edge
+  - 🇷🇺 Россия Beget · gRPC · Firefox
+  - 🇷🇺 Россия Beget · gRPC · Qq
+  - 🇷🇺 Россия ProCloud · XHTTP · Random
+  - 🇷🇺 Россия ProCloud · XHTTP · Random · 2
+  - 🇷🇺 Россия ProCloud · XHTTP · Firefox
+  - 🇷🇺 Россия ProCloud · XHTTP · Firefox · 2
+  - 🇷🇺 Россия ProCloud · XHTTP · Firefox · 3
+  - 🇷🇺 Россия ProCloud · XHTTP · Firefox · 4
+  - 🇷🇺 Россия ProCloud · XHTTP · Firefox · 5
+  - 🇷🇺 Россия Timeweb · XHTTP · Firefox
+  - 🇷🇺 Россия Timeweb · XHTTP · Firefox · 2
+  - 🇦🇱 Албания · XHTTP XHTTP · Ios
+  - 🇧🇬 Болгария · XHTTP randomquaint.net · Firefox
+  - 🇧🇬 Болгария · XHTTP fitindoor.net · Firefox
+  - 🇧🇬 Болгария · XHTTP summerculture.net · Firefox
+  - 🇧🇬 Болгария · XHTTP randomquaint.net · Firefox · 2
+  - 🇩🇪 Германия · Vision VK · Random
+  - 🇩🇪 Германия · Vision VK · Firefox
+  - 🇩🇪 Германия · Vision VK · Firefox · 2
+  - 🇩🇪 Германия · Vision OK · Firefox
+  - 🇩🇪 Германия · Vision Yandex · Firefox
+  - 🇩🇪 Германия · Vision VK · Random · 2
+  - 🇩🇪 Германия · Vision OK · Firefox · 2
+  - 🇩🇪 Германия · Vision Yandex · Firefox · 2
+  - 🇩🇪 Германия · Vision Yandex · Chrome
+  - 🇩🇪 Германия · XHTTP XHTTP · Firefox
+  - 🇩🇪 Германия · XHTTP rwyisq · Chrome
+  - 🇩🇪 Германия · XHTTP rwyisq · Chrome · 2
+  - 🇩🇪 Германия · XHTTP rwyisq · Qq
+  - 🇩🇪 Германия · XHTTP rwyisq · Edge
+  - 🇩🇪 Германия · XHTTP rwyisq · Firefox
+  - 🇩🇪 Германия · Vision Yandex · Chrome · 2
+  - 🇩🇪 Германия · XHTTP rwyisq · Safari
+  - 🇩🇪 Германия · XHTTP rwyisq · Ios
+  - 🇩🇪 Германия · XHTTP rwyisq · Qq · 2
+  - 🇩🇪 Германия · XHTTP XHTTP · Chrome
+  - 🇩🇪 Германия · XHTTP XHTTP · Firefox · 2
+  - 🇩🇪 Германия · XHTTP rwyisq · Ios · 2
+  - 🇩🇪 Германия · XHTTP dzv5pi · Chrome
+  - 🇩🇪 Германия · XHTTP dzv5pi · Safari
+  - 🇩🇪 Германия · Vision Yandex · Firefox · 3
+  - 🇩🇪 Германия · Vision Yandex · Firefox · 4
+  - 🇩🇪 Германия · WS WS · Edge
+  - 🇩🇪 Германия · Vision Yandex · Firefox · 5
+  - 🇩🇪 Германия · Vision OK · Firefox · 3
+  - 🇩🇪 Германия · Vision MAX · Firefox
+  - 🇩🇪 Германия · Vision MAX · Firefox · 2
+  - 🇩🇪 Германия · Vision VK · Firefox · 3
+  - 🇩🇪 Германия · Vision MAX · Firefox · 3
+  - 🇩🇪 Германия · Vision VK · Firefox · 4
+  - 🇩🇪 Германия · Vision Yandex · Firefox · 6
+  - 🇩🇪 Германия · WS Nehtar · Firefox
+  - 🇩🇪 Германия · WS CDN · Firefox
+  - 🇩🇪 Германия · Vision OK · Firefox · 4
+  - 🇩🇪 Германия · Vision MAX · Firefox · 4
+  - 🇩🇪 Германия · Vision Yandex · Firefox · 7
+  - 🇩🇪 Германия · Vision OK · Firefox · 5
+  - 🇩🇪 Германия · Vision VK · Firefox · 5
+  - 🇩🇪 Германия · Vision Vision · Firefox
+  - 🇪🇪 Эстония · gRPC gRPC · Random
+  - 🇪🇪 Эстония · gRPC gRPC · Firefox
+  - 🇫🇮 Финляндия · Vision Yandex · Random
+  - 🇫🇷 Франция · gRPC VK · Firefox
+  - 🇫🇷 Франция · gRPC VK · Default FP
+  - 🇫🇷 Франция · gRPC VK · Chrome
+  - 🇳🇴 Норвегия · gRPC Yandex · Qq
+  - 🇵🇱 Польша · WS WS · Firefox
+  - 🇵🇱 Польша · WS my · Firefox
+  - 🇵🇱 Польша · WS my · Qq
+  - 🇵🇱 Польша · WS my · Chrome
+  - 🇵🇱 Польша · WS my · Safari
+  - 🇵🇱 Польша · WS my · Ios
+  - 🇵🇱 Польша · gRPC OK · Firefox
+  - 🇵🇱 Польша · WS WS · Firefox · 2
+  - 🇵🇱 Польша · gRPC OK · Random
+  - 🇵🇱 Польша · Vision Vision · Chrome
+  - 🇵🇱 Польша · WS my · Default FP
+  - 🇵🇱 Польша · Vision Vision · Ios
+  - 🇵🇱 Польша · Vision Vision · Random
+  - 🇵🇱 Польша · Vision Yandex · Random
+  - 🇵🇱 Польша · Vision MAX · Firefox
+  - 🇸🇪 Швеция · Vision Vision · Firefox
+  - 🇸🇪 Швеция · Vision Vision · Random
+  - 'TXT · 🇷🇺 Beget · #1'
+  - 'TXT · 🇷🇺 Beget · #2'
+  - 'TXT · 🇷🇺 Beget · #3'
+  - 'TXT · 🇷🇺 Delta · #4'
+  - 'TXT · 🇩🇪 Germany · #5'
+  - 'TXT · 🇩🇪 Germany · #6'
+  - 'TXT · 🇩🇪 Germany · #7'
+  - 'TXT · 🇩🇪 Germany · #8'
+  - 'TXT · 🇩🇪 Germany · #9'
+  - 'TXT · 🇩🇪 Germany · #10'
+  - 'TXT · 🇩🇪 Germany · #11'
+  - 'TXT · 🇩🇪 Germany · #12'
+  - 'TXT · 🇩🇪 Germany · #13'
+  - 'TXT · 🇩🇪 Germany · #14'
+  - 'TXT · 🇩🇪 Germany · #15'
+  - 'TXT · 🇩🇪 Germany · #16'
+  - 'TXT · 🇩🇪 Germany · #17'
+  - 'TXT · 🇬🇧 United Kingdom · #18'
+  - 'TXT · 🇬🇧 United Kingdom · #19'
+  - 'TXT · 🇬🇧 United Kingdom · #20'
+  - 'TXT · 🇬🇧 United Kingdom · #21'
+  - 'TXT · 🇵🇱 Poland · #22'
+  - 'TXT · 🇵🇱 Poland · #23'
+  - 'TXT · 🇵🇱 Poland · #24'
+  - 'TXT · 🇵🇱 Poland · #25'
+  - 'TXT · 🇵🇱 Poland · #26'
+  - 'TXT · 🇵🇱 Poland · #27'
+  - 'TXT · 🇵🇱 Poland · #28'
+  - 'TXT · 🇵🇱 Poland · #29'
+  - 'TXT · 🇵🇱 Poland · #30'
+  - 'TXT · 🇵🇱 Poland · #31'
+  - 'TXT · 🇵🇱 Poland · #32'
+  - 'TXT · 🇵🇱 Poland · #33'
+  - 'TXT · 🇵🇱 Poland · #34'
+  - 'TXT · 🇵🇱 Poland · #35'
+  - 'TXT · 🇵🇱 Poland · #36'
+  - 'TXT · 🇵🇱 Poland · #37'
+  - 'TXT · 🇵🇱 Poland · #38'
+  - 'TXT · 🇵🇱 Poland · #39'
+  - 'TXT · 🇵🇱 Poland · #40'
+  - 'TXT · 🇵🇱 Poland · #41'
+  - 'TXT · 🇵🇱 Poland · #42'
+  - 'TXT · 🇵🇱 Poland · #43'
+  - 'TXT · 🇵🇱 Poland · #44'
+  - 'TXT · 🇵🇱 Poland · #45'
+  - 'TXT · 🇵🇱 Poland · #46'
+  - 'TXT · 🇵🇱 Poland · #47'
+  - 'TXT · 🇵🇱 Poland · #48'
+  - 'TXT · 🇵🇱 Poland · #49'
+  url: https://www.gstatic.com/generate_204
+  interval: 300
+  tolerance: 80
+  lazy: true
+- name: 🎯 Вручную
+  type: select
+  proxies:
+  - 🇷🇺 Россия VK · XHTTP · Firefox
+  - 🇷🇺 Россия VK · XHTTP · Default FP
+  - 🇷🇺 Россия Beget · Reality · Chrome
+  - 🇷🇺 Россия Beget · Reality · Qq
+  - 🇷🇺 Россия Beget · gRPC · Random
+  - 🇷🇺 Россия Beget · gRPC · Ios
+  - 🇷🇺 Россия Beget · gRPC · Edge
+  - 🇷🇺 Россия Beget · gRPC · Firefox
+  - 🇷🇺 Россия Beget · gRPC · Qq
+  - 🇷🇺 Россия ProCloud · XHTTP · Random
+  - 🇷🇺 Россия ProCloud · XHTTP · Random · 2
+  - 🇷🇺 Россия ProCloud · XHTTP · Firefox
+  - 🇷🇺 Россия ProCloud · XHTTP · Firefox · 2
+  - 🇷🇺 Россия ProCloud · XHTTP · Firefox · 3
+  - 🇷🇺 Россия ProCloud · XHTTP · Firefox · 4
+  - 🇷🇺 Россия ProCloud · XHTTP · Firefox · 5
+  - 🇷🇺 Россия Timeweb · XHTTP · Firefox
+  - 🇷🇺 Россия Timeweb · XHTTP · Firefox · 2
+  - 🇦🇱 Албания · XHTTP XHTTP · Ios
+  - 🇧🇬 Болгария · XHTTP randomquaint.net · Firefox
+  - 🇧🇬 Болгария · XHTTP fitindoor.net · Firefox
+  - 🇧🇬 Болгария · XHTTP summerculture.net · Firefox
+  - 🇧🇬 Болгария · XHTTP randomquaint.net · Firefox · 2
+  - 🇩🇪 Германия · Vision VK · Random
+  - 🇩🇪 Германия · Vision VK · Firefox
+  - 🇩🇪 Германия · Vision VK · Firefox · 2
+  - 🇩🇪 Германия · Vision OK · Firefox
+  - 🇩🇪 Германия · Vision Yandex · Firefox
+  - 🇩🇪 Германия · Vision VK · Random · 2
+  - 🇩🇪 Германия · Vision OK · Firefox · 2
+  - 🇩🇪 Германия · Vision Yandex · Firefox · 2
+  - 🇩🇪 Германия · Vision Yandex · Chrome
+  - 🇩🇪 Германия · XHTTP XHTTP · Firefox
+  - 🇩🇪 Германия · XHTTP rwyisq · Chrome
+  - 🇩🇪 Германия · XHTTP rwyisq · Chrome · 2
+  - 🇩🇪 Германия · XHTTP rwyisq · Qq
+  - 🇩🇪 Германия · XHTTP rwyisq · Edge
+  - 🇩🇪 Германия · XHTTP rwyisq · Firefox
+  - 🇩🇪 Германия · Vision Yandex · Chrome · 2
+  - 🇩🇪 Германия · XHTTP rwyisq · Safari
+  - 🇩🇪 Германия · XHTTP rwyisq · Ios
+  - 🇩🇪 Германия · XHTTP rwyisq · Qq · 2
+  - 🇩🇪 Германия · XHTTP XHTTP · Chrome
+  - 🇩🇪 Германия · XHTTP XHTTP · Firefox · 2
+  - 🇩🇪 Германия · XHTTP rwyisq · Ios · 2
+  - 🇩🇪 Германия · XHTTP dzv5pi · Chrome
+  - 🇩🇪 Германия · XHTTP dzv5pi · Safari
+  - 🇩🇪 Германия · Vision Yandex · Firefox · 3
+  - 🇩🇪 Германия · Vision Yandex · Firefox · 4
+  - 🇩🇪 Германия · WS WS · Edge
+  - 🇩🇪 Германия · Vision Yandex · Firefox · 5
+  - 🇩🇪 Германия · Vision OK · Firefox · 3
+  - 🇩🇪 Германия · Vision MAX · Firefox
+  - 🇩🇪 Германия · Vision MAX · Firefox · 2
+  - 🇩🇪 Германия · Vision VK · Firefox · 3
+  - 🇩🇪 Германия · Vision MAX · Firefox · 3
+  - 🇩🇪 Германия · Vision VK · Firefox · 4
+  - 🇩🇪 Германия · Vision Yandex · Firefox · 6
+  - 🇩🇪 Германия · WS Nehtar · Firefox
+  - 🇩🇪 Германия · WS CDN · Firefox
+  - 🇩🇪 Германия · Vision OK · Firefox · 4
+  - 🇩🇪 Германия · Vision MAX · Firefox · 4
+  - 🇩🇪 Германия · Vision Yandex · Firefox · 7
+  - 🇩🇪 Германия · Vision OK · Firefox · 5
+  - 🇩🇪 Германия · Vision VK · Firefox · 5
+  - 🇩🇪 Германия · Vision Vision · Firefox
+  - 🇪🇪 Эстония · gRPC gRPC · Random
+  - 🇪🇪 Эстония · gRPC gRPC · Firefox
+  - 🇫🇮 Финляндия · Vision Yandex · Random
+  - 🇫🇷 Франция · gRPC VK · Firefox
+  - 🇫🇷 Франция · gRPC VK · Default FP
+  - 🇫🇷 Франция · gRPC VK · Chrome
+  - 🇳🇴 Норвегия · gRPC Yandex · Qq
+  - 🇵🇱 Польша · WS WS · Firefox
+  - 🇵🇱 Польша · WS my · Firefox
+  - 🇵🇱 Польша · WS my · Qq
+  - 🇵🇱 Польша · WS my · Chrome
+  - 🇵🇱 Польша · WS my · Safari
+  - 🇵🇱 Польша · WS my · Ios
+  - 🇵🇱 Польша · gRPC OK · Firefox
+  - 🇵🇱 Польша · WS WS · Firefox · 2
+  - 🇵🇱 Польша · gRPC OK · Random
+  - 🇵🇱 Польша · Vision Vision · Chrome
+  - 🇵🇱 Польша · WS my · Default FP
+  - 🇵🇱 Польша · Vision Vision · Ios
+  - 🇵🇱 Польша · Vision Vision · Random
+  - 🇵🇱 Польша · Vision Yandex · Random
+  - 🇵🇱 Польша · Vision MAX · Firefox
+  - 🇸🇪 Швеция · Vision Vision · Firefox
+  - 🇸🇪 Швеция · Vision Vision · Random
+  - 'TXT · 🇷🇺 Beget · #1'
+  - 'TXT · 🇷🇺 Beget · #2'
+  - 'TXT · 🇷🇺 Beget · #3'
+  - 'TXT · 🇷🇺 Delta · #4'
+  - 'TXT · 🇩🇪 Germany · #5'
+  - 'TXT · 🇩🇪 Germany · #6'
+  - 'TXT · 🇩🇪 Germany · #7'
+  - 'TXT · 🇩🇪 Germany · #8'
+  - 'TXT · 🇩🇪 Germany · #9'
+  - 'TXT · 🇩🇪 Germany · #10'
+  - 'TXT · 🇩🇪 Germany · #11'
+  - 'TXT · 🇩🇪 Germany · #12'
+  - 'TXT · 🇩🇪 Germany · #13'
+  - 'TXT · 🇩🇪 Germany · #14'
+  - 'TXT · 🇩🇪 Germany · #15'
+  - 'TXT · 🇩🇪 Germany · #16'
+  - 'TXT · 🇩🇪 Germany · #17'
+  - 'TXT · 🇬🇧 United Kingdom · #18'
+  - 'TXT · 🇬🇧 United Kingdom · #19'
+  - 'TXT · 🇬🇧 United Kingdom · #20'
+  - 'TXT · 🇬🇧 United Kingdom · #21'
+  - 'TXT · 🇵🇱 Poland · #22'
+  - 'TXT · 🇵🇱 Poland · #23'
+  - 'TXT · 🇵🇱 Poland · #24'
+  - 'TXT · 🇵🇱 Poland · #25'
+  - 'TXT · 🇵🇱 Poland · #26'
+  - 'TXT · 🇵🇱 Poland · #27'
+  - 'TXT · 🇵🇱 Poland · #28'
+  - 'TXT · 🇵🇱 Poland · #29'
+  - 'TXT · 🇵🇱 Poland · #30'
+  - 'TXT · 🇵🇱 Poland · #31'
+  - 'TXT · 🇵🇱 Poland · #32'
+  - 'TXT · 🇵🇱 Poland · #33'
+  - 'TXT · 🇵🇱 Poland · #34'
+  - 'TXT · 🇵🇱 Poland · #35'
+  - 'TXT · 🇵🇱 Poland · #36'
+  - 'TXT · 🇵🇱 Poland · #37'
+  - 'TXT · 🇵🇱 Poland · #38'
+  - 'TXT · 🇵🇱 Poland · #39'
+  - 'TXT · 🇵🇱 Poland · #40'
+  - 'TXT · 🇵🇱 Poland · #41'
+  - 'TXT · 🇵🇱 Poland · #42'
+  - 'TXT · 🇵🇱 Poland · #43'
+  - 'TXT · 🇵🇱 Poland · #44'
+  - 'TXT · 🇵🇱 Poland · #45'
+  - 'TXT · 🇵🇱 Poland · #46'
+  - 'TXT · 🇵🇱 Poland · #47'
+  - 'TXT · 🇵🇱 Poland · #48'
+  - 'TXT · 🇵🇱 Poland · #49'
+- name: 🔄 Узлы из TXT
+  type: select
+  proxies:
+  - 'TXT · 🇷🇺 Beget · #1'
+  - 'TXT · 🇷🇺 Beget · #2'
+  - 'TXT · 🇷🇺 Beget · #3'
+  - 'TXT · 🇷🇺 Delta · #4'
+  - 'TXT · 🇩🇪 Germany · #5'
+  - 'TXT · 🇩🇪 Germany · #6'
+  - 'TXT · 🇩🇪 Germany · #7'
+  - 'TXT · 🇩🇪 Germany · #8'
+  - 'TXT · 🇩🇪 Germany · #9'
+  - 'TXT · 🇩🇪 Germany · #10'
+  - 'TXT · 🇩🇪 Germany · #11'
+  - 'TXT · 🇩🇪 Germany · #12'
+  - 'TXT · 🇩🇪 Germany · #13'
+  - 'TXT · 🇩🇪 Germany · #14'
+  - 'TXT · 🇩🇪 Germany · #15'
+  - 'TXT · 🇩🇪 Germany · #16'
+  - 'TXT · 🇩🇪 Germany · #17'
+  - 'TXT · 🇬🇧 United Kingdom · #18'
+  - 'TXT · 🇬🇧 United Kingdom · #19'
+  - 'TXT · 🇬🇧 United Kingdom · #20'
+  - 'TXT · 🇬🇧 United Kingdom · #21'
+  - 'TXT · 🇵🇱 Poland · #22'
+  - 'TXT · 🇵🇱 Poland · #23'
+  - 'TXT · 🇵🇱 Poland · #24'
+  - 'TXT · 🇵🇱 Poland · #25'
+  - 'TXT · 🇵🇱 Poland · #26'
+  - 'TXT · 🇵🇱 Poland · #27'
+  - 'TXT · 🇵🇱 Poland · #28'
+  - 'TXT · 🇵🇱 Poland · #29'
+  - 'TXT · 🇵🇱 Poland · #30'
+  - 'TXT · 🇵🇱 Poland · #31'
+  - 'TXT · 🇵🇱 Poland · #32'
+  - 'TXT · 🇵🇱 Poland · #33'
+  - 'TXT · 🇵🇱 Poland · #34'
+  - 'TXT · 🇵🇱 Poland · #35'
+  - 'TXT · 🇵🇱 Poland · #36'
+  - 'TXT · 🇵🇱 Poland · #37'
+  - 'TXT · 🇵🇱 Poland · #38'
+  - 'TXT · 🇵🇱 Poland · #39'
+  - 'TXT · 🇵🇱 Poland · #40'
+  - 'TXT · 🇵🇱 Poland · #41'
+  - 'TXT · 🇵🇱 Poland · #42'
+  - 'TXT · 🇵🇱 Poland · #43'
+  - 'TXT · 🇵🇱 Poland · #44'
+  - 'TXT · 🇵🇱 Poland · #45'
+  - 'TXT · 🇵🇱 Poland · #46'
+  - 'TXT · 🇵🇱 Poland · #47'
+  - 'TXT · 🇵🇱 Poland · #48'
+  - 'TXT · 🇵🇱 Poland · #49'
+- name: 🇷🇺 Россия
+  type: select
+  proxies:
+  - 🇷🇺 Россия VK · XHTTP · Firefox
+  - 🇷🇺 Россия VK · XHTTP · Default FP
+  - 🇷🇺 Россия Beget · Reality · Chrome
+  - 🇷🇺 Россия Beget · Reality · Qq
+  - 🇷🇺 Россия Beget · gRPC · Random
+  - 🇷🇺 Россия Beget · gRPC · Ios
+  - 🇷🇺 Россия Beget · gRPC · Edge
+  - 🇷🇺 Россия Beget · gRPC · Firefox
+  - 🇷🇺 Россия Beget · gRPC · Qq
+  - 🇷🇺 Россия ProCloud · XHTTP · Random
+  - 🇷🇺 Россия ProCloud · XHTTP · Random · 2
+  - 🇷🇺 Россия ProCloud · XHTTP · Firefox
+  - 🇷🇺 Россия ProCloud · XHTTP · Firefox · 2
+  - 🇷🇺 Россия ProCloud · XHTTP · Firefox · 3
+  - 🇷🇺 Россия ProCloud · XHTTP · Firefox · 4
+  - 🇷🇺 Россия ProCloud · XHTTP · Firefox · 5
+  - 🇷🇺 Россия Timeweb · XHTTP · Firefox
+  - 🇷🇺 Россия Timeweb · XHTTP · Firefox · 2
+- name: 🇦🇱 Албания
+  type: select
+  proxies:
+  - 🇦🇱 Албания · XHTTP XHTTP · Ios
+- name: 🇧🇬 Болгария
+  type: select
+  proxies:
+  - 🇧🇬 Болгария · XHTTP randomquaint.net · Firefox
+  - 🇧🇬 Болгария · XHTTP fitindoor.net · Firefox
+  - 🇧🇬 Болгария · XHTTP summerculture.net · Firefox
+  - 🇧🇬 Болгария · XHTTP randomquaint.net · Firefox · 2
+- name: 🇩🇪 Германия
+  type: select
+  proxies:
+  - 🇩🇪 Германия · Vision VK · Random
+  - 🇩🇪 Германия · Vision VK · Firefox
+  - 🇩🇪 Германия · Vision VK · Firefox · 2
+  - 🇩🇪 Германия · Vision OK · Firefox
+  - 🇩🇪 Германия · Vision Yandex · Firefox
+  - 🇩🇪 Германия · Vision VK · Random · 2
+  - 🇩🇪 Германия · Vision OK · Firefox · 2
+  - 🇩🇪 Германия · Vision Yandex · Firefox · 2
+  - 🇩🇪 Германия · Vision Yandex · Chrome
+  - 🇩🇪 Германия · XHTTP XHTTP · Firefox
+  - 🇩🇪 Германия · XHTTP rwyisq · Chrome
+  - 🇩🇪 Германия · XHTTP rwyisq · Chrome · 2
+  - 🇩🇪 Германия · XHTTP rwyisq · Qq
+  - 🇩🇪 Германия · XHTTP rwyisq · Edge
+  - 🇩🇪 Германия · XHTTP rwyisq · Firefox
+  - 🇩🇪 Германия · Vision Yandex · Chrome · 2
+  - 🇩🇪 Германия · XHTTP rwyisq · Safari
+  - 🇩🇪 Германия · XHTTP rwyisq · Ios
+  - 🇩🇪 Германия · XHTTP rwyisq · Qq · 2
+  - 🇩🇪 Германия · XHTTP XHTTP · Chrome
+  - 🇩🇪 Германия · XHTTP XHTTP · Firefox · 2
+  - 🇩🇪 Германия · XHTTP rwyisq · Ios · 2
+  - 🇩🇪 Германия · XHTTP dzv5pi · Chrome
+  - 🇩🇪 Германия · XHTTP dzv5pi · Safari
+  - 🇩🇪 Германия · Vision Yandex · Firefox · 3
+  - 🇩🇪 Германия · Vision Yandex · Firefox · 4
+  - 🇩🇪 Германия · WS WS · Edge
+  - 🇩🇪 Германия · Vision Yandex · Firefox · 5
+  - 🇩🇪 Германия · Vision OK · Firefox · 3
+  - 🇩🇪 Германия · Vision MAX · Firefox
+  - 🇩🇪 Германия · Vision MAX · Firefox · 2
+  - 🇩🇪 Германия · Vision VK · Firefox · 3
+  - 🇩🇪 Германия · Vision MAX · Firefox · 3
+  - 🇩🇪 Германия · Vision VK · Firefox · 4
+  - 🇩🇪 Германия · Vision Yandex · Firefox · 6
+  - 🇩🇪 Германия · WS Nehtar · Firefox
+  - 🇩🇪 Германия · WS CDN · Firefox
+  - 🇩🇪 Германия · Vision OK · Firefox · 4
+  - 🇩🇪 Германия · Vision MAX · Firefox · 4
+  - 🇩🇪 Германия · Vision Yandex · Firefox · 7
+  - 🇩🇪 Германия · Vision OK · Firefox · 5
+  - 🇩🇪 Германия · Vision VK · Firefox · 5
+  - 🇩🇪 Германия · Vision Vision · Firefox
+- name: 🇪🇪 Эстония
+  type: select
+  proxies:
+  - 🇪🇪 Эстония · gRPC gRPC · Random
+  - 🇪🇪 Эстония · gRPC gRPC · Firefox
+- name: 🇫🇮 Финляндия
+  type: select
+  proxies:
+  - 🇫🇮 Финляндия · Vision Yandex · Random
+- name: 🇫🇷 Франция
+  type: select
+  proxies:
+  - 🇫🇷 Франция · gRPC VK · Firefox
+  - 🇫🇷 Франция · gRPC VK · Default FP
+  - 🇫🇷 Франция · gRPC VK · Chrome
+- name: 🇳🇴 Норвегия
+  type: select
+  proxies:
+  - 🇳🇴 Норвегия · gRPC Yandex · Qq
+- name: 🇵🇱 Польша
+  type: select
+  proxies:
+  - 🇵🇱 Польша · WS WS · Firefox
+  - 🇵🇱 Польша · WS my · Firefox
+  - 🇵🇱 Польша · WS my · Qq
+  - 🇵🇱 Польша · WS my · Chrome
+  - 🇵🇱 Польша · WS my · Safari
+  - 🇵🇱 Польша · WS my · Ios
+  - 🇵🇱 Польша · gRPC OK · Firefox
+  - 🇵🇱 Польша · WS WS · Firefox · 2
+  - 🇵🇱 Польша · gRPC OK · Random
+  - 🇵🇱 Польша · Vision Vision · Chrome
+  - 🇵🇱 Польша · WS my · Default FP
+  - 🇵🇱 Польша · Vision Vision · Ios
+  - 🇵🇱 Польша · Vision Vision · Random
+  - 🇵🇱 Польша · Vision Yandex · Random
+  - 🇵🇱 Польша · Vision MAX · Firefox
+- name: 🇸🇪 Швеция
+  type: select
+  proxies:
+  - 🇸🇪 Швеция · Vision Vision · Firefox
+  - 🇸🇪 Швеция · Vision Vision · Random
+rules:
+- DOMAIN,localhost,DIRECT
+- DOMAIN-SUFFIX,lan,DIRECT
+- DOMAIN-SUFFIX,local,DIRECT
+- IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+- IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+- IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+- IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+- IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
+- IP-CIDR6,::1/128,DIRECT,no-resolve
+- IP-CIDR6,fc00::/7,DIRECT,no-resolve
+- GEOIP,private,DIRECT,no-resolve
+- MATCH,🚀 Подключение
