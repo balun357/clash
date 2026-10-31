@@ -22,7 +22,7 @@ jobs:
 
       - name: Download source list
         run: |
-          curl -fsSL "https://raw.githubusercontent.com/zieng2/wl/main/vless_universal.txt" -o source.txt
+          curl -fsSL "https://raw.githubusercontent.com/zieng2/wl/main/vless_universal.txt
 
       - name: Convert subscription
         run: |
