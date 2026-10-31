@@ -19,7 +19,7 @@ jobs:
 
       - name: Download source list
         run: |
-
+          curl -fsSL "https://raw.githubusercontent.com/zieng2/wl/main/vless_universal.txt" -o source.txt
           curl -fsSL "https://raw.githubusercontent.com/igareck/vpn-configs-for-russia/refs/heads/main/WHITE-CIDR-RU-all.txt" -o ru_cidr.txt
 
       - name: Convert subscription
